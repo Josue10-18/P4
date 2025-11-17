@@ -1,0 +1,60 @@
+.brand-title,
+.brand-title:hover,
+.brand-title:focus {
+    color: #000000 !important; /* Forces black color */
+    text-decoration: none; /* Removes underline on hover if present */
+    pointer-events: auto; /* Ensure it remains clickable */
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* Updated to black for the black/white theme */
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem; /* Increased for readability */
+    z-index: 1030; /* Ensures the footer is on top of other elements */
+}
+
+/* New: Styles for the Carousel */
+.custom-carousel-height {
+    min-height: 350px; /* Gives the carousel a good height for text */
+    /* Use flexbox to center content vertically */
+    display: flex;
+    align-items: center;
+}
+
+.custom-carousel-height .carousel-item {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for links inside the footer */
+.footer a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.bg-black {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand img {
+    filter: brightness(100%);
+    transition: 0.3s ease; /* optional smooth fade */
+}
+.navbar-brand img:hover {
+    filter: brightness(100%);
+}
