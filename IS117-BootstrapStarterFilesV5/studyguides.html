@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Bible Network - Contact</title>
+    <title>The Bible Network - Study Guides</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" crossorigin="anonymous">
@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- NAVIGATION BAR -->
+            <!-- NAVIGATION -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white col-12 sticky-top border-bottom position-relative">
 
                 <a class="navbar-brand" href="index.html">
@@ -38,7 +38,7 @@
 
                         <li class="nav-item"><a class="nav-link" href="fzd.html"><strong>FZD</strong></a></li>
 
-                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resources</a>
@@ -48,9 +48,9 @@
                             </ul>
                         </li>
 
-                        <!-- Correct Dropdown (Option A) -->
+                        <!-- ACTIVE PAGE -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop"
+                            <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbardrop"
                                role="button" data-bs-toggle="dropdown">
                                 Study Guides
                             </a>
@@ -65,46 +65,54 @@
                 </div>
             </nav>
 
-        </div>
+            <!-- PAGE CONTENT -->
+            <div class="row my-5 px-3">
 
-        <!-- CONTACT FORM -->
-        <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5">
-                <h1 class="text-center mb-4">Contact The Bible Network</h1>
+                <div class="col-12 text-center mb-4">
+                    <h1 class="fw-bold">Bible Study Resources</h1>
+                    <p class="lead">Select a guide to begin your study.</p>
+                </div>
 
-                <form action="success.html">
-                    <div class="form-group mb-3">
-                        <label>First Name:</label>
-                        <input type="text" class="form-control" placeholder="First name" required>
+                <div class="col-lg-4 mb-4">
+
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Bible Studies</h5>
+                            <p>Foundational themes and full-book studies.</p>
+                            <a class="btn btn-sm btn-outline-primary" href="studyguides.html">View Studies</a>
+                        </div>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label>Last Name:</label>
-                        <input type="text" class="form-control" placeholder="Last name" required>
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Old Testament</h5>
+                            <p>Historical books, prophets, and wisdom literature.</p>
+                            <a class="btn btn-sm btn-outline-primary" href="studyguides.html">View Resources</a>
+                        </div>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label>Email:</label>
-                        <input type="email" class="form-control" placeholder="Enter email" required>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">New Testament</h5>
+                            <p>Gospels, Epistles, and Revelation guides.</p>
+                            <a class="btn btn-sm btn-outline-primary" href="studyguides.html">View Books</a>
+                        </div>
                     </div>
 
-                    <div class="form-group mb-3">
-                        <label>Text Entry:</label>
-                        <input type="text" class="form-control" placeholder="Thoughts" required>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card shadow-sm p-3 bg-light text-center">
+                        <h2 class="text-secondary mb-3">Visual Guide</h2>
+                        <img src="images/study.png" class="img-fluid rounded shadow"
+                             alt="Books of the Bible Study Guide."
+                             style="max-height: 400px; object-fit: contain; width: 100%; margin: auto;">
+                        <p class="text-muted mt-3">BIBLE BOOK BREAKDOWN</p>
                     </div>
-
-
-                    <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox">
-                        <label class="form-check-label">Subscribe to our newsletter</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                </form>
+                </div>
 
             </div>
         </div>
-
     </div>
 </div>
 

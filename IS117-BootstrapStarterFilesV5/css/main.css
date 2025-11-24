@@ -8,20 +8,26 @@
 
 body {
     font-family: 'Times New Roman', Times, serif;
+    /* --- NEW STICKY FOOTER CSS --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body covers the full viewport height */
+}
+
+/* NEW CLASS: This will make the main content area expand to fill the space */
+.main-content-wrapper {
+    flex-grow: 1;
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    /* Updated to black for the black/white theme */
-    background-color: #ffffff;
-    color: black;
+    background-color: #000000;
+    color: white;
     text-align: center;
-    padding: 10px;
-    font-size: 0.8rem; /* Increased for readability */
-    z-index: 1030; /* Ensures the footer is on top of other elements */
+    padding: 10px 0;
+    font-size: 0.8rem;
+    z-index: 1030;
+    margin-top: auto;
 }
 
 /* New: Styles for the Carousel */
@@ -57,4 +63,11 @@ body {
 }
 .navbar-brand img:hover {
     filter: brightness(100%);
+}
+
+.navbar-nav {
+    margin-left: 100px;
+    margin-right: auto;
+    display: flex;
+    gap: 2.5rem; /* space between each item */
 }
