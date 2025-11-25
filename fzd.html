@@ -3,104 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>The Bible Network - FZD</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
+
+    <style>
+        /* Prevent entire page from scrolling */
+        body {
+            overflow: hidden;
+        }
+
+        /* Scroll only the FZD content area */
+        .fzd-content {
+            overflow-y: auto;
+            height: calc(100vh - 140px);
+            /*
+                140px = navbar (~60px) + footer (~80px)
+                Adjust if needed depending on your screen
+            */
+            padding-bottom: 20px;
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="main-content-wrapper">
-    <div class="container-fluid">
-        <div class="row">
 
-            <!-- NAVIGATION BAR -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white col-12 sticky-top border-bottom position-relative">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/Logo%232.png" alt="The Bible Network Logo" width="50" height="50" class="d-inline-block me-2">
-                </a>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white col-12 sticky-top border-bottom position-relative">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/Logo%232.png" width="50" height="50" alt="Logo" class="d-inline-block me-2">
+        </a>
 
-                <a class="navbar-brand brand-title d-none d-lg-block mx-auto position-absolute start-50 translate-middle-x" href="index.html">
-                    <span class="display-6 fw-bold">The Bible Network</span>
-                </a>
+        <a class="navbar-brand brand-title d-none d-lg-block mx-auto position-absolute start-50 translate-middle-x"
+           href="index.html">
+            <span class="display-6 fw-bold">The Bible Network</span>
+        </a>
 
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="fzd.html"><strong>FZD</strong></a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active fw-bold" href="fzd.html">FZD</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="studyguides.html" data-bs-toggle="dropdown">Study Guides</a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Bible Studies</a>
-                                <a class="dropdown-item" href="#">Old Testament</a>
-                                <a class="dropdown-item" href="#">New Testament</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Study Guides</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="studyguides.html">Bible Studies</a>
+                        <a class="dropdown-item" href="old-testament.html">Old Testament</a>
+                        <a class="dropdown-item" href="new-testament.html">New Testament</a>
+                    </div>
+                </li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- FZD CONTENT SECTION -->
-        <div class="row my-5">
+    <!-- SCROLLABLE CONTENT AREA -->
+    <div class="container-fluid fzd-content">
+
+        <!-- Page Title -->
+        <div class="row mt-4">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <h1 class="fw-bold display-4 text-primary">FZD</h1>
                 <p class="lead text-muted">My Testimony & Mission</p>
             </div>
+        </div>
 
-            <!-- IMAGE LEFT + ARTICLE RIGHT -->
-            <div class="col-lg-10 offset-lg-1 mt-4">
+        <!-- Main Content -->
+        <div class="row mt-4 justify-content-center">
+            <div class="col-lg-10">
                 <div class="row align-items-start">
 
-                    <!-- LEFT SIDE IMAGE -->
+                    <!-- LEFT IMAGE -->
                     <div class="col-lg-4 text-center mb-4">
-                        <img src="images/josue%20ortiz.jpg" alt="Josue Ortiz" class="img-fluid rounded shadow" style="width:100%; height:auto; object-fit:cover;">
+                        <img src="images/josue%20ortiz.jpg"
+                             alt="Josue Ortiz"
+                             class="img-fluid rounded shadow"
+                             style="width:100%; height:auto; object-fit:cover;">
                     </div>
 
-                    <!-- RIGHT SIDE ARTICLE -->
-                    <div class="col-lg-8" style="background: #ffffff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                        <article class="p-3" style="font-size: 1.25rem; line-height: 1.7;">
-                            <p>My name is <strong>Josue Ortiz</strong>. I was raised in the Mormon church and went faithfully until about age 13, when I slowly drifted away from the faith. As I grew older, I fell into a five-year struggle with lust addiction, from late 2019 to early 2025.</p>
+                    <!-- RIGHT TEXT -->
+                    <div class="col-lg-8"
+                         style="background:#ffffff; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
 
+                        <article class="p-3" style="font-size:1.25rem; line-height:1.7;">
+
+                            <p>My name is <strong>Josue Ortiz</strong>. I was raised in the Mormon church and went faithfully until about age 13, when I slowly drifted away from the faith. As I grew older, I fell into a five-year struggle with lust addiction, from late 2019 to early 2025.</p>
 
                             <p>But through the grace of God and by finally understanding the true gospel of Jesus Christ, I was saved, renewed, and completely freed from that addiction. God gave me a new heart—a heart that longs for Jesus, for holiness, and for bringing others to Him.</p>
 
-
                             <p>Today, I truly understand what it means to follow Jesus—not as a religion, but as a relationship. I’m now walking a new journey as a non-denominational follower of Christ, pursuing Him daily and growing in His Word.</p>
-
 
                             <p>God has given me a passion for evangelism, and I share the gospel in creative, authentic ways—both in everyday conversations and through social media.</p>
 
-
                             <p>You can find me on Instagram and TikTok <strong>@fzdxchrist</strong>, where I use my platform to point people to Christ and share His transforming power.</p>
+
                         </article>
+
                     </div>
+
                 </div>
             </div>
-
-
         </div>
-
-
     </div>
+
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (sticky) -->
 <footer class="footer page-footer font-small">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 text-center">
-                <span class="text-white small">
-                    &copy; The Bible Network, 2025 | FZD |
-                    <a href="#" class="text-white">Terms Of Use</a> |
-                    <a href="#" class="text-white">Privacy Statement</a>
-                </span>
-            </div>
-        </div>
+    <div class="container-fluid text-center">
+        <span class="text-white small">
+            © The Bible Network, 2025 | FZD |
+            <a href="#" class="text-white">Terms Of Use</a> |
+            <a href="#" class="text-white">Privacy Statement</a>
+        </span>
     </div>
 </footer>
 

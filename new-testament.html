@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Bible Network - New Testament</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+
+    <style>
+        body { font-family: Georgia, "Times New Roman", serif; }
+        .sidebar {
+            max-height: 80vh;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+        .book-item { cursor: pointer; padding: 10px 15px; }
+        .book-item:hover { background:#f8f9fa; }
+        .book-item.active { background:#e9ecef; font-weight:bold; }
+    </style>
+</head>
+
+<body>
+
+<div class="main-content-wrapper">
+
+    <!-- NAVBAR MATCHES INDEX.HTML EXACTLY -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white col-12 sticky-top border-bottom position-relative">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="images/Logo%232.png" width="50" height="50" alt="The Bible Network Logo" class="d-inline-block me-2">
+        </a>
+
+        <!-- CENTER TITLE -->
+        <a class="navbar-brand brand-title d-none d-lg-block mx-auto position-absolute start-50 translate-middle-x"
+           href="index.html">
+            <span class="display-6 fw-bold">The Bible Network</span>
+        </a>
+
+        <button class="navbar-toggler ms-auto" type="button"
+                data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="fzd.html"><strong>FZD</strong></a></li>
+
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Study Guides</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="studyguides.html">Bible Studies</a>
+                        <a class="dropdown-item" href="old-testament.html">Old Testament</a>
+                        <a class="dropdown-item active" href="new-testament.html">New Testament</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+
+    <!-- PAGE TITLE BELOW NAVBAR -->
+    <div class="text-center mt-3 mb-4">
+        <h1 class="display-5 fw-bold">New Testament</h1>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- SIDEBAR -->
+            <div class="col-12 col-md-3 sidebar p-3">
+                <h5>New Testament Books</h5>
+
+                <input id="searchBooks" class="form-control form-control-sm mb-2" placeholder="Search books...">
+                <div id="bookList" class="list-group"></div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="col-12 col-md-9 p-4">
+                <h2 id="bookTitle" class="fw-bold">Select a Book</h2>
+                <p id="bookDescription" class="text-muted">Choose a book from the left to view a summary.</p>
+
+                <div class="mt-4">
+                    <button id="prevBtn" class="btn btn-outline-secondary btn-sm me-2">Previous</button>
+                    <button id="nextBtn" class="btn btn-outline-secondary btn-sm">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer page-footer font-small">
+    <div class="container-fluid text-center">
+        <span class="text-white small">
+            © The Bible Network, 2025 | FZD |
+            <a href="#" class="text-white">Terms Of Use</a> |
+            <a href="#" class="text-white">Privacy Statement</a>
+        </span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // New Testament Books
+    const books = [
+        { title: "Matthew", desc: "The life and teachings of Jesus according to Matthew." },
+        { title: "Mark", desc: "A fast-paced account of Jesus’ ministry and sacrifice." },
+        { title: "Luke", desc: "A detailed narrative of Jesus' life, miracles, and teachings." },
+        { title: "John", desc: "The divinity of Jesus and His identity as the Son of God." },
+
+        { title: "Acts", desc: "The early church and the spread of the gospel." },
+
+        { title: "Romans", desc: "Paul’s foundational teaching on salvation and faith." },
+        { title: "1 Corinthians", desc: "Correcting and teaching the church in Corinth." },
+        { title: "2 Corinthians", desc: "Paul’s defense of his ministry and encouragement." },
+
+        { title: "Galatians", desc: "Freedom in Christ and justification by faith." },
+        { title: "Ephesians", desc: "The church is the body of Christ." },
+        { title: "Philippians", desc: "Joy in Christ despite suffering." },
+        { title: "Colossians", desc: "The supremacy of Christ." },
+
+        { title: "1 Thessalonians", desc: "Encouragement and Christ’s return." },
+        { title: "2 Thessalonians", desc: "Clarifying the Day of the Lord." },
+
+        { title: "1 Timothy", desc: "Instructions for church leadership." },
+        { title: "2 Timothy", desc: "Paul’s final letter of encouragement to Timothy." },
+        { title: "Titus", desc: "Building strong church leadership." },
+        { title: "Philemon", desc: "Christian reconciliation and forgiveness." },
+
+        { title: "Hebrews", desc: "Jesus is the ultimate High Priest and sacrifice." },
+        { title: "James", desc: "Faith must result in good works." },
+
+        { title: "1 Peter", desc: "Hope for suffering Christians." },
+        { title: "2 Peter", desc: "Warnings against false teachers." },
+
+        { title: "1 John", desc: "Love, truth, and living in Christ." },
+        { title: "2 John", desc: "Remain faithful to Christ’s teaching." },
+        { title: "3 John", desc: "Encouragement to walk in truth." },
+
+        { title: "Jude", desc: "Contending for the faith." },
+        { title: "Revelation", desc: "Prophecy of Christ’s ultimate victory." }
+    ];
+
+    let currentIndex = -1;
+
+    function renderList(filter = "") {
+        const list = document.getElementById("bookList");
+        list.innerHTML = "";
+
+        books
+            .filter(b => b.title.toLowerCase().includes(filter.toLowerCase()))
+            .forEach((b, i) => {
+                let div = document.createElement("div");
+                div.className = "book-item list-group-item";
+                div.textContent = b.title;
+                div.onclick = () => selectBook(i);
+                if (i === currentIndex) div.classList.add("active");
+                list.appendChild(div);
+            });
+    }
+
+    function selectBook(i) {
+        currentIndex = i;
+        document.getElementById("bookTitle").textContent = books[i].title;
+        document.getElementById("bookDescription").textContent = books[i].desc;
+        renderList(document.getElementById("searchBooks").value);
+    }
+
+    document.getElementById("searchBooks").addEventListener("input", e => {
+        renderList(e.target.value);
+    });
+
+    document.getElementById("prevBtn").onclick = () => {
+        if (currentIndex > 0) selectBook(currentIndex - 1);
+    };
+    document.getElementById("nextBtn").onclick = () => {
+        if (currentIndex < books.length - 1) selectBook(currentIndex + 1);
+    };
+
+    renderList();
+</script>
+
+</body>
+</html>

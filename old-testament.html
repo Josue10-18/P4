@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Bible Network - Old Testament</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+
+    <style>
+        body { font-family: Georgia, "Times New Roman", serif; }
+        .sidebar {
+            max-height: 80vh;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+        .book-item { cursor: pointer; padding: 10px 15px; }
+        .book-item:hover { background:#f8f9fa; }
+        .book-item.active { background:#e9ecef; font-weight:bold; }
+    </style>
+</head>
+
+<body>
+
+<div class="main-content-wrapper">
+
+    <!-- NAVBAR MATCHES INDEX.HTML EXACTLY -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white col-12 sticky-top border-bottom position-relative">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="images/Logo%232.png" width="50" height="50" alt="The Bible Network Logo" class="d-inline-block me-2">
+        </a>
+
+        <!-- CENTER TITLE -->
+        <a class="navbar-brand brand-title d-none d-lg-block mx-auto position-absolute start-50 translate-middle-x"
+           href="index.html">
+            <span class="display-6 fw-bold">The Bible Network</span>
+        </a>
+
+        <button class="navbar-toggler ms-auto" type="button"
+                data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="nav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="fzd.html"><strong>FZD</strong></a></li>
+
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Study Guides</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="studyguides.html">Bible Studies</a>
+                        <a class="dropdown-item active" href="old-testament.html">Old Testament</a>
+                        <a class="dropdown-item" href="new-testament.html">New Testament</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+
+    <!-- PAGE TITLE BELOW NAVBAR -->
+    <div class="text-center mt-3 mb-4">
+        <h1 class="display-5 fw-bold">Old Testament</h1>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- SIDEBAR -->
+            <div class="col-12 col-md-3 sidebar p-3">
+                <h5>Old Testament Books</h5>
+
+                <input id="searchBooks" class="form-control form-control-sm mb-2" placeholder="Search books...">
+                <div id="bookList" class="list-group"></div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class="col-12 col-md-9 p-4">
+                <h2 id="bookTitle" class="fw-bold">Select a Book</h2>
+                <p id="bookDescription" class="text-muted">Choose a book from the left to view a summary.</p>
+
+                <div class="mt-4">
+                    <button id="prevBtn" class="btn btn-outline-secondary btn-sm me-2">Previous</button>
+                    <button id="nextBtn" class="btn btn-outline-secondary btn-sm">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer page-footer font-small">
+    <div class="container-fluid text-center">
+        <span class="text-white small">
+            © The Bible Network, 2025 | FZD |
+            <a href="#" class="text-white">Terms Of Use</a> |
+            <a href="#" class="text-white">Privacy Statement</a>
+        </span>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const books = [
+        { title: "Genesis", desc: "The book of beginnings: creation, humanity, Abraham, and the covenant." },
+        { title: "Exodus", desc: "Israel’s deliverance from Egypt and the giving of the Law." },
+        { title: "Leviticus", desc: "Laws for worship, sacrifices, and holiness." },
+        { title: "Numbers", desc: "Israel’s wilderness journey and census." },
+        { title: "Deuteronomy", desc: "Moses’ final teachings and renewal of the covenant." },
+        { title: "Joshua", desc: "Israel enters and conquers the promised land." },
+        { title: "Judges", desc: "Cycles of sin, judgment, and deliverance." },
+        { title: "Ruth", desc: "A story of loyalty, redemption, and King David’s lineage." },
+        { title: "1 Samuel", desc: "Samuel, Saul, and the rise of David." },
+        { title: "2 Samuel", desc: "The reign of King David." },
+        { title: "1 Kings", desc: "Solomon, the temple, and the divided kingdom." },
+        { title: "2 Kings", desc: "The fall of Israel and Judah." },
+        { title: "1 Chronicles", desc: "Genealogies and the reign of David." },
+        { title: "2 Chronicles", desc: "The kings of Judah and the exile." },
+        { title: "Ezra", desc: "Return from exile and temple rebuilding." },
+        { title: "Nehemiah", desc: "Rebuilding Jerusalem’s walls." },
+        { title: "Esther", desc: "God protects Israel through Esther." },
+        { title: "Job", desc: "Suffering, faith, and God's sovereignty." },
+        { title: "Psalms", desc: "Songs and prayers to God." },
+        { title: "Proverbs", desc: "Wisdom sayings for life." },
+        { title: "Ecclesiastes", desc: "Reflections on meaning and life." },
+        { title: "Song of Solomon", desc: "Poetic love between bride and groom." },
+        { title: "Isaiah", desc: "Prophecies of judgment and hope." },
+        { title: "Jeremiah", desc: "Warnings before Judah’s exile." },
+        { title: "Lamentations", desc: "Jeremiah mourns Jerusalem’s fall." },
+        { title: "Ezekiel", desc: "Visions, judgment, and restoration." },
+        { title: "Daniel", desc: "Faithfulness in exile and future prophecy." },
+        { title: "Hosea", desc: "God’s love for unfaithful Israel." },
+        { title: "Joel", desc: "The Day of the Lord and restoration." },
+        { title: "Amos", desc: "Judgment against injustice." },
+        { title: "Obadiah", desc: "Prophecy against Edom." },
+        { title: "Jonah", desc: "God's mercy toward Nineveh." },
+        { title: "Micah", desc: "Judgment and the Messiah’s birthplace." },
+        { title: "Nahum", desc: "Judgment on Nineveh." },
+        { title: "Habakkuk", desc: "Questions about injustice." },
+        { title: "Zephaniah", desc: "The Day of the Lord." },
+        { title: "Haggai", desc: "Rebuild the temple." },
+        { title: "Zechariah", desc: "Visions and Messianic prophecy." },
+        { title: "Malachi", desc: "Final warnings and promise of Elijah." }
+    ];
+
+    let currentIndex = -1;
+
+    function renderList(filter = "") {
+        const list = document.getElementById("bookList");
+        list.innerHTML = "";
+
+        books
+            .filter(b => b.title.toLowerCase().includes(filter.toLowerCase()))
+            .forEach((b, i) => {
+                let div = document.createElement("div");
+                div.className = "book-item list-group-item";
+                div.textContent = b.title;
+                div.onclick = () => selectBook(i);
+                if (i === currentIndex) div.classList.add("active");
+                list.appendChild(div);
+            });
+    }
+
+    function selectBook(i) {
+        currentIndex = i;
+        document.getElementById("bookTitle").textContent = books[i].title;
+        document.getElementById("bookDescription").textContent = books[i].desc;
+        renderList(document.getElementById("searchBooks").value);
+    }
+
+    document.getElementById("searchBooks").addEventListener("input", e => {
+        renderList(e.target.value);
+    });
+
+    document.getElementById("prevBtn").onclick = () => {
+        if (currentIndex > 0) selectBook(currentIndex - 1);
+    };
+    document.getElementById("nextBtn").onclick = () => {
+        if (currentIndex < books.length - 1) selectBook(currentIndex + 1);
+    };
+
+    renderList();
+</script>
+
+</body>
+</html>
